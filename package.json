@@ -58,7 +58,7 @@
 	},
 	"scripts": {
 		"check:dts": "npx check-dts ./check-dts/**.types.ts ./check-dts/**.errors.ts",
-		"prepare": "git config core.hooksPath .git-hooks",
+		"prepare": "node build.js",
 		"test": "tape test/*.js | tap-spec",
 		"build": "node build.js",
 		"benchmark": "node benchmark/index.js",
@@ -66,8 +66,7 @@
 		"docs:start": "eleventy --config=eleventy.config.cjs --serve",
 		"docs:build": "rm -rf www && eleventy --config=eleventy.config.cjs",
 		"docs:deploy": "npm run docs:build && gh-pages -d www --dotfiles",
-		"lint": "eslint {src,test}/**/*.js",
-		"postinstall": "node build.js"
+		"lint": "eslint {src,test}/**/*.js"
 	},
 	"prettier": {
 		"bracketSpacing": true,
